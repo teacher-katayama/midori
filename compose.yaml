@@ -1,11 +1,14 @@
 services:
   db:
-    image: mariadb:10.7
+    image: mariadb:11.5.2
     environment:
       MARIADB_ROOT_PASSWORD: rootpass
-      MARIADB_DATABASE: testdb
-      MARIADB_USER: testuser
-      MARIADB_PASSWORD: testpass
+      MARIADB_DATABASE: yoyakudb
+      MARIADB_USER: user01
+      MARIADB_PASSWORD: user01pass
+      MARIADB_ROOT_HOST: '%'
+    ports:
+      - "3306:3306"
     volumes:
       - db-data:/var/lib/mysql
   php:
